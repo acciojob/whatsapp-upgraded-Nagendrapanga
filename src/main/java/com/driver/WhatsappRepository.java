@@ -83,6 +83,7 @@ public class WhatsappRepository {
             throw new Exception("You are not allowed to send message");
         }
         List<Message> messages = groupMessageMap.get(group);
+
         if(messages == null){
             messages = new ArrayList<>();
         }
@@ -109,9 +110,9 @@ public class WhatsappRepository {
         }
 
         boolean flag=false;
-        for(User user1:users){
+        for(User us:users){
 
-            if(user1==user){
+            if(us==user){
 
                 flag=true;
             }
@@ -137,8 +138,8 @@ public class WhatsappRepository {
         Group group = new Group();
         for(Group group1: userGroupMap.keySet()){
             List<User> userList= userGroupMap.get(group);
-            for(User user1: userList){
-                if(user1==user){
+            for(User user2: userList){
+                if(user2 == user){
                     flag=true;
                     if(userList.get(0)==user){
                         isAdmin = true;
