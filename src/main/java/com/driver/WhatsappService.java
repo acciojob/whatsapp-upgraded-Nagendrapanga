@@ -9,15 +9,16 @@ import java.util.List;
 public class WhatsappService {
 
     WhatsappRepository whatsappRepository =new WhatsappRepository();
-    public String createUser(String name, String mobile) throws Exception {
+    public void createUser(String name, String mobile) throws Exception {
 
-      return  whatsappRepository.createUser(name,mobile);
+       whatsappRepository.createUser(name,mobile);
 
     }
 
     public Group createGroup(List<User> users) {
 
-        return  whatsappRepository.createGroup(users);
+        Group group = whatsappRepository.createGroup(users);
+        return group;
     }
 
     public int createMessage(String content) {
@@ -30,9 +31,9 @@ public class WhatsappService {
         return whatsappRepository.sendMessage(message,sender,group);
     }
 
-    public String changeAdmin(User approver, User user, Group group) throws Exception {
+    public void changeAdmin(User approver, User user, Group group) throws Exception {
 
-        return whatsappRepository.changeAdmin(approver,user,group);
+         whatsappRepository.changeAdmin(approver,user,group);
     }
 
     public int removeUser(User user) throws Exception {
